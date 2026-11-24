@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛍️ Product Management Monorepo
+# 🧠 AI-Ready Full-Stack Blueprint
 
 **A full-stack product management app with a React + TypeScript frontend and a .NET 10 Clean Architecture Web API.**
 
@@ -52,7 +52,7 @@ flowchart LR
 ```
 
 | Folder | Role | Example |
-|---|---|---|
+| --- | --- | --- |
 | 🧱 `components/` | Feature UI | `ProductList.tsx`, `ProductForm.tsx` |
 | 🪝 `hooks/` | TanStack Query queries & mutations | `useProducts.ts`, `useCreateProduct.ts` |
 | 🌐 `services/` | API calls | `productsApi.ts` |
@@ -85,7 +85,7 @@ flowchart TB
 ```
 
 | Layer | Responsibility | Depends on |
-|---|---|---|
+| --- | --- | --- |
 | 💎 **Domain** | Entities and repository contracts | *nothing* |
 | 🧠 **Application** | Use cases, DTOs, service interfaces | Domain |
 | 🗄️ **Infrastructure** | Data access (`InMemoryProductRepository`) | Domain |
@@ -94,7 +94,7 @@ flowchart TB
 > 🤖 **Adding an entity?** Start in Domain, then add DTOs and a service in Application, a repository in Infrastructure, and a controller in Api.
 
 | 💡 Why it matters for AI | |
-|---|---|
+| --- | --- |
 | 🧭 **Predictable** | The LLM always knows where new code belongs |
 | 🔁 **Repeatable** | New features copy an existing, proven pattern |
 | 🧩 **Isolated** | Changes stay small and scoped to one feature or layer |
@@ -105,7 +105,7 @@ flowchart TB
 ## ✨ Features
 
 | | Feature | Description |
-|---|---|---|
+| --- | --- | --- |
 | 📦 | **Full CRUD** | Create, view, edit and delete products |
 | ⚡ | **Fast UI** | Vite-powered React 19 app with instant HMR |
 | 🎨 | **Modern components** | shadcn/ui-style components built on Radix UI + Tailwind CSS |
@@ -150,7 +150,7 @@ React + TypeScript application built with Vite, organized with a **feature-based
 .NET Web API following **Clean Architecture** principles.
 
 | Layer | Project | Responsibility |
-|---|---|---|
+| --- | --- | --- |
 | 🌐 Presentation | `Product.Api` | Controllers, Swagger, CORS, DI setup |
 | 🧠 Application | `Product.Application` | Services, DTOs, use-case interfaces |
 | 💎 Domain | `Product.Domain` | `Product` aggregate, business rules, repository contracts |
@@ -165,7 +165,7 @@ React + TypeScript application built with Vite, organized with a **feature-based
 ### 📋 Prerequisites
 
 | Tool | Version |
-|---|---|
+| --- | --- |
 | 🟣 [.NET SDK](https://dotnet.microsoft.com/download) | 10.0+ |
 | 🟢 [Node.js](https://nodejs.org/) | 20+ (or [Bun](https://bun.sh/)) |
 
@@ -207,10 +207,10 @@ npm run dev
 ### 🌍 Open in your browser
 
 | Service | URL |
-|---|---|
-| 🖥️ Frontend | http://localhost:5173 |
-| ⚙️ API | http://localhost:5000 |
-| 📖 Swagger UI | http://localhost:5000/swagger |
+| --- | --- |
+| 🖥️ Frontend | <http://localhost:5173> |
+| ⚙️ API | <http://localhost:5000> |
+| 📖 Swagger UI | <http://localhost:5000/swagger> |
 
 > 💡 **Tip:** The frontend API base URL is configured in [`frontend/src/shared/api/config.ts`](frontend/src/shared/api/config.ts).
 
@@ -221,7 +221,7 @@ npm run dev
 Base route: `/api/Products`
 
 | Method | Endpoint | Description | Success |
-|:---:|---|---|:---:|
+| :---: | --- | --- | :---: |
 | ![GET](https://img.shields.io/badge/GET-0F9D58?style=flat-square) | `/api/Products` | List all products | `200` |
 | ![GET](https://img.shields.io/badge/GET-0F9D58?style=flat-square) | `/api/Products/{id}` | Get a product by ID | `200` |
 | ![POST](https://img.shields.io/badge/POST-F4B400?style=flat-square) | `/api/Products` | Create a product | `201` |
@@ -270,7 +270,7 @@ monorepo/
 ## 🛠️ Available Scripts
 
 | Location | Command | Description |
-|---|---|---|
+| --- | --- | --- |
 | `frontend/` | `npm run dev` | Start the Vite dev server |
 | `frontend/` | `npm run build` | Type-check and build for production |
 | `frontend/` | `npm run lint` | Run ESLint |
