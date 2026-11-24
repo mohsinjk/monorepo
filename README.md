@@ -29,9 +29,33 @@
 
 ---
 
-## 🎯 Purpose
+## 🎯 Purpose: AI-First Development with Predefined Design Patterns
 
 > 🤖 **AI-first by design.** This monorepo is built on **predefined design patterns** that give LLMs a clear, predictable blueprint. When every feature and layer follows the same structure, AI assistants generate code that is **more accurate, consistent and maintainable**.
+
+#### ❓ The problem
+
+LLMs are good at writing code, but in a codebase without clear conventions they tend to:
+
+- put files in random or inconsistent places
+- mix responsibilities, such as UI, data fetching and validation in one component
+- invent a new pattern for every feature
+- produce code that is hard to review and to keep consistent over time
+
+#### 💡 The approach
+
+This project removes that guesswork by setting **one clear pattern per side of the stack**:
+
+- **Frontend:** a **Feature-Based Structure (FBS)**, where each feature owns its components, hooks, services, types and validation.
+- **Backend:** **Clean Architecture**, where each layer has a single responsibility and dependencies always point toward the Domain.
+
+Because the structure is fixed and documented, an AI assistant can look at an existing feature (such as `products`), recognise the pattern, and follow it. You can ask for *"add a Categories feature"* and expect code that fits the codebase, not a one-off design.
+
+#### 🎁 What you get
+
+- 📘 **A reference app**: a working, full-stack CRUD example of both patterns
+- 🧰 **A starting template** for new AI-assisted projects
+- 🎓 **A learning resource** for Feature-Based React and Clean Architecture in .NET
 
 ### 🎨 Frontend: Feature-Based Structure (FBS)
 
