@@ -33,48 +33,65 @@
 
 > 🤖 **AI-first by design.** This monorepo is built on **predefined design patterns** that give LLMs a clear, predictable blueprint. When every feature and layer follows the same structure, AI assistants generate code that is **more accurate, consistent and maintainable**.
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
 ### 🎨 Frontend: Feature-Based Structure (FBS)
 
-Each feature lives in its own folder under `src/features/<feature>/`:
+<p>
+  <img alt="Pattern" src="https://img.shields.io/badge/Pattern-Feature--Based-61DAFB?style=flat-square&logo=react&logoColor=black" />
+  <img alt="Data" src="https://img.shields.io/badge/Data-TanStack_Query-FF4154?style=flat-square&logo=reactquery&logoColor=white" />
+  <img alt="Validation" src="https://img.shields.io/badge/Validation-Zod-3E67B1?style=flat-square&logo=zod&logoColor=white" />
+</p>
 
-```text
-features/products/
-├── components/   # UI for the feature
-├── hooks/        # TanStack Query hooks
-├── services/     # API calls
-├── types/        # TypeScript types
-├── utils/        # Zod validation & helpers
-└── index.ts      # Public API of the feature
+> **One feature = one folder.** Everything a feature needs lives together, so an LLM can build or change a feature without touching anything else.
+
+```mermaid
+flowchart LR
+    P["📄 pages/"] --> F["🧩 features/products"]
+    F --> S["♻️ shared/<br/>api · components · utils"]
+    L["🖼️ layouts/"] --> P
+    A["🚀 app/<br/>router"] --> L
 ```
 
-Shared building blocks live in `shared/`, and route-level screens in `pages/`.
+| Folder | Role | Example |
+|---|---|---|
+| 🧱 `components/` | Feature UI | `ProductList.tsx`, `ProductForm.tsx` |
+| 🪝 `hooks/` | TanStack Query queries & mutations | `useProducts.ts`, `useCreateProduct.ts` |
+| 🌐 `services/` | API calls | `productsApi.ts` |
+| 🏷️ `types/` | TypeScript contracts | `product.types.ts` |
+| 🛡️ `utils/` | Zod validation & helpers | `productValidation.ts` |
+| 🚪 `index.ts` | The feature's **public API**, re-exporting what other code can use | — |
 
-</td>
-<td width="50%" valign="top">
+> 🤖 **Adding a feature?** Copy the `products/` structure and keep the same folders and naming.
 
 ### ⚙️ Backend: Clean Architecture
 
-Each layer has a single responsibility, and dependencies point **inward**:
+<p>
+  <img alt="Pattern" src="https://img.shields.io/badge/Pattern-Clean_Architecture-512BD4?style=flat-square&logo=dotnet&logoColor=white" />
+  <img alt="DI" src="https://img.shields.io/badge/DI-Built--in-239120?style=flat-square&logo=csharp&logoColor=white" />
+  <img alt="Docs" src="https://img.shields.io/badge/Docs-Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black" />
+</p>
 
-```text
-Product.Api            → Controllers, DI, Swagger
-   ↓
-Product.Application    → DTOs, services, interfaces
-   ↓
-Product.Domain         → Entities, repository contracts
-   ↑
-Product.Infrastructure → Repository implementations
+> **Dependencies point inward.** The Domain sits at the core with **zero dependencies**, so business rules stay pure and easy to test.
+
+```mermaid
+flowchart TB
+    API["🌐 Product.Api<br/>Controllers · DI · Swagger · CORS"]
+    APP["🧠 Product.Application<br/>DTOs · Services · Interfaces"]
+    INF["🗄️ Product.Infrastructure<br/>Repositories · Test data"]
+    DOM["💎 Product.Domain<br/>Entities · Repository contracts"]
+    API --> APP
+    API --> INF
+    APP --> DOM
+    INF --> DOM
 ```
 
-The domain has **zero dependencies**, so business rules stay pure.
+| Layer | Responsibility | Depends on |
+|---|---|---|
+| 💎 **Domain** | Entities and repository contracts | *nothing* |
+| 🧠 **Application** | Use cases, DTOs, service interfaces | Domain |
+| 🗄️ **Infrastructure** | Data access (`InMemoryProductRepository`) | Domain |
+| 🌐 **Api** | HTTP endpoints, dependency injection, Swagger | Application, Infrastructure |
 
-</td>
-</tr>
-</table>
+> 🤖 **Adding an entity?** Start in Domain, then add DTOs and a service in Application, a repository in Infrastructure, and a controller in Api.
 
 | 💡 Why it matters for AI | |
 |---|---|
