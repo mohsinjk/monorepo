@@ -6,8 +6,8 @@
 
 <p>
   <img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img alt="Vite" src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-7-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
 </p>
 <p>
@@ -15,13 +15,15 @@
   <img alt="C#" src="https://img.shields.io/badge/C%23-ASP.NET_Core-239120?style=for-the-badge&logo=csharp&logoColor=white" />
   <img alt="Swagger" src="https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" />
   <img alt="React Query" src="https://img.shields.io/badge/TanStack_Query-5-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" />
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" />
 </p>
 
 [✨ Features](#-features) •
 [🏗️ Architecture](#️-architecture) •
 [🚀 Getting Started](#-getting-started) •
 [📡 API](#-api-reference) •
-[📁 Structure](#-project-structure)
+[📁 Structure](#-project-structure) •
+[📄 License](#-license)
 
 </div>
 
@@ -214,6 +216,12 @@ Contributions are welcome! 🎉
 3. 💾 Commit your changes: `git commit -m "Add amazing feature"`
 4. 📤 Push the branch: `git push origin feature/amazing-feature`
 5. 🔃 Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
