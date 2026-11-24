@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Product.Api</RootNamespace>
+    <!-- Disable NuGet vulnerability audit; the restore source is unreachable in this environment, causing NU1900 noise. -->
+    <NuGetAudit>false</NuGetAudit>
   </PropertyGroup>
 
   <ItemGroup>
