@@ -29,6 +29,62 @@
 
 ---
 
+## 🎯 Purpose
+
+> 🤖 **AI-first by design.** This monorepo is built on **predefined design patterns** that give LLMs a clear, predictable blueprint. When every feature and layer follows the same structure, AI assistants generate code that is **more accurate, consistent and maintainable**.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🎨 Frontend: Feature-Based Structure (FBS)
+
+Each feature lives in its own folder under `src/features/<feature>/`:
+
+```text
+features/products/
+├── components/   # UI for the feature
+├── hooks/        # TanStack Query hooks
+├── services/     # API calls
+├── types/        # TypeScript types
+├── utils/        # Zod validation & helpers
+└── index.ts      # Public API of the feature
+```
+
+Shared building blocks live in `shared/`, and route-level screens in `pages/`.
+
+</td>
+<td width="50%" valign="top">
+
+### ⚙️ Backend: Clean Architecture
+
+Each layer has a single responsibility, and dependencies point **inward**:
+
+```text
+Product.Api            → Controllers, DI, Swagger
+   ↓
+Product.Application    → DTOs, services, interfaces
+   ↓
+Product.Domain         → Entities, repository contracts
+   ↑
+Product.Infrastructure → Repository implementations
+```
+
+The domain has **zero dependencies**, so business rules stay pure.
+
+</td>
+</tr>
+</table>
+
+| 💡 Why it matters for AI | |
+|---|---|
+| 🧭 **Predictable** | The LLM always knows where new code belongs |
+| 🔁 **Repeatable** | New features copy an existing, proven pattern |
+| 🧩 **Isolated** | Changes stay small and scoped to one feature or layer |
+| ✅ **Reviewable** | Generated code is easy to verify against known conventions |
+
+---
+
 ## ✨ Features
 
 | | Feature | Description |
